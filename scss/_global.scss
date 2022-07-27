@@ -1,0 +1,18 @@
+body {
+  background-color: #151515;
+  color: #fff;
+  @extend %circe-regular;
+  font-size: 14px;
+  line-height: 22px;
+  cursor: url('../images/cursor-custom.svg'), auto;
+}
+
+a {
+  cursor: url('../images/cursor-custom.svg'), auto;
+}
+
+.container {
+  max-width: 1200px;
+  padding: 0 10px;
+  margin: 0 auto;
+}

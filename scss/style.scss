@@ -1,0 +1,281 @@
+@import 'vars';
+@import 'fonts';
+@import 'reset';
+@import 'libs';
+@import 'global';
+
+.messadge-in {
+  padding: 35px 0;
+  position: relative;
+  .container {
+    display: flex;
+    justify-content: center;
+    column-gap: 57px;
+    overflow: hidden;
+  }
+  &__aside {
+    max-width: 220px;
+    background-color: #1D1C1C;
+    z-index: 2;
+    transition: all .5s;
+  }
+  &__avatar {
+    width: 220px;
+    height: 293px;
+    position: relative;
+    border: 1px solid $accent;
+    .messadge-in__avatar--checked {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+    }
+  }
+  &__avatar-img {
+    width: 220px;
+    height: 291px;
+    object-fit: cover;
+  }
+  &__menu-list {
+    padding: 50px 30px;
+    border-bottom: 1px solid #242424;
+    &:nth-child(1) {
+      .messadge-in__menu-item {
+        position: relative;
+        span {
+          position: absolute;
+          right: 0;
+        }
+      }
+    }
+    &:nth-child(3) {
+      border-bottom: none;
+    }
+    &:nth-child(4) {
+      background-color: $accent;
+      transition: all .5s;
+      &:hover {
+        background-color: #fff;
+        .messadge-in__menu-link {
+          color: $accent;
+        }
+      }
+      .messadge-in__menu-link {
+        display: block;
+        text-align: center;
+      }
+    }
+  }
+  &__menu-item + .messadge-in__menu-item {
+    margin-top: 20px;
+  }
+  &__menu-link {
+    display: inline-block;
+    font-size: 15px;
+    color: #fff;
+    transition: all .5s;
+    &:hover {
+      color: $accent;
+    }
+  }
+  &__menu-link--active {
+    font-size: 16px;
+    @extend %circe-bold;
+    color: $accent;
+  }
+
+  &__list {
+    overflow-x: auto;
+  }
+
+  &__table-buttons {
+    margin-bottom: 15px;
+    line-height: 20px;
+    height: 30px;             
+  }
+  &__table-buttons-item {
+    &:first-child {
+      color: #FF5B5C;
+      padding-right: 20px;
+    }
+    &:nth-child(2) {
+      width: 216px;
+      color: #ffffff;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+    &:nth-child(3) {
+      width: 125px;
+      color: $accent;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+    &:nth-child(4) {
+      color: #959595;
+      width: 238px;
+    }
+    &:nth-child(5) {
+      height: 30px;
+      padding-left: 102px;
+      padding-right: 25px;
+      color: $accent;
+      border: 1px solid $accent;
+      position: relative;
+      span {
+        position: absolute;
+        right: 6px;
+        font-size: 14px;
+        vertical-align: middle;
+        font-weight: 900;
+      }
+    }
+  }
+  &__table-buttons__menu-btn {
+    display: none;
+    text-align: right;
+    padding-right: 5px;
+    padding-bottom: 5px;
+  }
+  &__table-buttons-item {
+    border: none; 
+    background-color: transparent;
+    cursor: url('../images/cursor-custom.svg'), auto;
+    path {
+      transition: all .3s;
+      fill: #fff;
+    }
+    &:hover {
+      path {
+        fill: $accent;
+      }
+    }
+  }
+
+
+  &__table-messages {
+    border-collapse: collapse;
+    margin-bottom: 50px;
+  }
+  &__table-message {
+    border-top: 1px solid #212121;
+    border-bottom: 1px solid #212121;
+    height: 58px;
+    transition: all .5s;
+    overflow: hidden;
+    vertical-align: middle;
+  }
+  &__table-message-label {
+    position: relative;
+    overflow: hidden;
+  }
+  &__table-message-input {
+    position: absolute;
+    top: 0; 
+    left: 0;
+    width: 1px;
+    height: 1px;
+    clip: rect(0 0 0 0);
+    &:checked + .messadge-in__table-message-checkbox {
+      background-image: url('../images/checked-img.svg');
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
+  }
+  &__table-message-checkbox {
+    display: block;
+    margin-right: 18px;
+    width: 16px;
+    height: 16px;
+    border: 1px solid #fff;
+    background-color: transparent;
+  }
+  &__table-message-avatar {
+    position: relative;
+    min-width: 42px;
+    
+  }
+  &__table-message-avatar-wrapper {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+  &__table-message-img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+  }
+  &__table-message-avatar--online {
+    position: absolute;
+    width: 23px;
+    height: 23px;
+    top: 2px;
+    right: -6px;
+  }
+  &__table-message-name {
+    @extend %circe-bold;
+    max-width: 182px;
+    font-size: 16px;
+    text-decoration: underline;
+    padding-left: 15px;
+    padding-right: 21px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  &__table-message-shopping {
+    padding-right: 16px;
+    svg {
+      vertical-align: text-bottom;
+    }
+  }
+  &__table-message-text {
+    max-width: 352px;
+    font-size: 16px;
+    color: $text;
+    background: linear-gradient(to right, #959595, rgba(149, 149, 149, 0));
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: clip;
+  }
+  &__table-message-date {
+    padding-left: 51px;
+    color: $text;
+    font-size: 16px;         
+  }
+  &__table-message-time {
+    padding-left: 20px;
+    color: $text;
+    font-size: 16px;         
+  }
+  &__table-message-pagination {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 30px;
+  }
+  &__table-message-pagination-item {
+    & + .messadge-in__table-message-pagination-item {
+      margin-left: 25px;
+    }
+  }
+  &__table-message-pagination-link {
+    vertical-align: middle;
+    color: #fff;
+  }
+  &__table-message-pagination-link--active {
+    border-radius: 50%;
+    border: 1px solid $accent;
+    color: $accent;
+    padding: 4px 8px;
+    margin: 0 -8px;
+  }
+}
+
+
+
+
+
+@import 'media';
